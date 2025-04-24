@@ -8,7 +8,7 @@
 //       • correct   – onko vastaus oikea (true/false)
 const questions = [
     {
-        question: "what is my favorite animal?",
+        question: "what is iida's favorite animal?",
         answers: [
             { text: "shark", correct: false },
             { text: "hyena", correct: false },
