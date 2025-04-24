@@ -1,4 +1,4 @@
-# SOF001IT1A
+# SOF001IT1A - Quiz app
 Tiimityö tehdään soveltaen kurssin oppeja (HTML ja JavaScript) sekä tietysti CSS-taitoja toiselta kurssilta.
 ## Toimintaperiaate
 
