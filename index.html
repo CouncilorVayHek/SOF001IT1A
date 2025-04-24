@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Quiz!</title>
-</head>
+    <meta charset="UTF-8" />
+    <title>Valitse visakategoria</title>
 
+    <!--  Sama perus-CSS kuin visassa -->
+    <link rel="stylesheet" href="./quizstyle.css" />
+
+    <!--  Pieni lisä ulkoasulle, ks. kohta 2  -->
+    <link rel="stylesheet" href="./home.css" />
+</head>
 <body>
-    <div class="app">
-        <h1>Simple Quiz</h1>
-        <div class="quiz">
-            <h2 id="question">question tähän</h2>
-            <div id="answer-buttons">
-                <button class="btn">Anwser 1</button>
-                <button class="btn">Anwser 2</button>
-                <button class="btn">Anwser 3</button>
-                <button class="btn">Anwser 4</button>
-            </div>
-            <button id="next-btn">Next</button>
+    <div class="app">          <!--  Sama korttimainen laatikko  -->
+        <h1>Valitse kategoria</h1>
+
+        <div id="categories" class="cat-grid">
+            <!-- Lisää / poista nappeja vapaasti -->
+            <button data-cat="eläimet" class="btn cat-btn">🐾  Eläimet</button>
+            <button data-cat="suomi" class="btn cat-btn">❓  suomi</button>
+            <button data-cat="historia" class="btn cat-btn">🏺  Historia</button>
         </div>
     </div>
-    <script src="script.js"></script>
-</body>
 
+    <script src="js/home.js"></script>
+</body>
 </html>

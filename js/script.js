@@ -1,40 +1,34 @@
-// -----------------------------
-// Kysymyspankki
-// -----------------------------
-// Jokainen alkio sisältää:
-//   • question  – itse kysymysteksti
-//   • answers   – neljän vastausobjektin taulukko
-//       • text      – vastausvaihtoehdon teksti
-//       • correct   – onko vastaus oikea (true/false)
-const questions = [
-    {
-        question: "what is iida's favorite animal?",
-        answers: [
-            { text: "shark", correct: false },
-            { text: "hyena", correct: false },
-            { text: "cat", correct: true },
-            { text: "dog", correct: false },
-        ]
-    },
-    {
-        question: "what is Milja's favorite animal?",
-        answers: [
-            { text: "kangaroo", correct: false },
-            { text: "lion", correct: false },
-            { text: "rat", correct: false },
-            { text: "dog", correct: true },
-        ]
-    },
-    {
-        question: "which is a dog?",
-        answers: [
-            { text: "elephant", correct: false },
-            { text: "mouse", correct: false },
-            { text: "dog", correct: true },
-            { text: "rat", correct: false },
-        ]
-    }
-];
+// script.js
+const category = sessionStorage.getItem("chosenCategory");
+
+let categoryScriptPath = "";
+
+switch (category) {
+  case "eläimet":
+    categoryScriptPath = "./js/kategories/eläimet.js";
+    break;
+  case "historia":
+    categoryScriptPath = "./js/kategories/historia.js";
+    break;
+  case "suomi":
+    categoryScriptPath = "./js/kategories/suomi.js";
+    break;
+  default:
+    alert("Kategoriaa ei löytynyt!");
+    break;
+}
+
+// Dynamically load the appropriate script
+if (categoryScriptPath) {
+  const script = document.createElement("script");
+  script.src = categoryScriptPath;
+  script.onload = () => {
+    // Assuming each category file defines a global variable `questions`
+    startQuiz(questions); // You implement this function to initialize the quiz with the loaded questions
+  };
+  document.body.appendChild(script);
+}
+
 
 // -----------------------------
 // Viittaukset HTML-elementteihin
@@ -126,9 +120,12 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     questionElement.innerHTML = `Sait ${score}/${questions.length}!`;
-    nextButton.innerHTML = "Pelaa Uudestaan";
+
+    nextButton.innerHTML = "Takaisin etusivulle";
     nextButton.style.display = "block";
 }
+
+
 
 // Siirtää tietovisaa eteenpäin:
 // - Kasvattaa kysymysindeksiä
@@ -143,16 +140,15 @@ function handleNextButton() {
     }
 }
 
-// Next-napin klikkauskuuntelija:
-// - Jos visa on kesken, siirtyy seuraavaan kysymykseen
-// - Jos kaikki kysymykset on käyty läpi, käynnistää visan uudelleen
 nextButton.addEventListener("click", () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     } else {
-        startQuiz();
+        window.location.href = "index.html";
     }
 });
+
+
 
 // Käynnistetään tietovisa sivun latautuessa
 startQuiz();

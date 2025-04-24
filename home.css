@@ -1,0 +1,24 @@
+/* Tuodaan perusvärit olemassa olevasta tiedostosta.
+   Lisätään vain ruudukko ja hover-animaatio. */
+
+   .cat-grid {
+    /* näyttää vastaus-nappien kaltaisilta korteilta,
+       mutta kahdessa sarakkeessa */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.cat-btn {
+    /* btn-luokka on jo olemassa – lisätään pehmeä varjo &
+       isompi fontti etusivulle */
+    font-size: 20px;
+    justify-content: center;      /* keskitys teksti vasemman sijaan */
+    text-align: center;
+    transition: transform .25s;
+}
+
+.cat-btn:hover:not([disabled]) {
+    transform: translateY(-4px);
+}
