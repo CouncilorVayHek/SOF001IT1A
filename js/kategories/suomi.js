@@ -1,182 +1,182 @@
 const questions = [
     {
-        question: "What is the smallest prime number?",
+        question: "Minä vuonna Suomi itsenäistyi?",
         answers: [
-            { text: "0", correct: false },
+            { text: "1909", correct: false },
+            { text: "1916", correct: false },
+            { text: "1917", correct: true },
+            { text: "1921", correct: false },
+        ]
+    },
+    {
+        question: "Mikä on Suomen kansallislintu?",
+        answers: [
+            { text: "Lokki", correct: false },
+            { text: "Laulujoutsen", correct: true },
+            { text: "Talitintti", correct: false },
+            { text: "Varpunen", correct: false },
+        ]
+    },
+    {
+        question: "Mikä on Suomen kansalliseläin?",
+        answers: [
+            { text: "Hirvi", correct: false },
+            { text: "Ahma", correct: false },
+            { text: "Karhu", correct: true },
+            { text: "Ilves", correct: false },
+        ]
+    },
+    {
+        question: "Mikä on Suomen pohjoisin kylä?",
+        answers: [
+            { text: "Kilpisjärvi", correct: false },
+            { text: "Nuorgam", correct: true },
+            { text: "Kemi", correct: false },
+            { text: "Inari", correct: false },
+        ]
+    },
+    {
+        question: "Kuinka monta virallista kieltä Suomessa on?",
+        answers: [
             { text: "1", correct: false },
             { text: "2", correct: true },
             { text: "3", correct: false },
+            { text: "0", correct: false },
         ]
     },
     {
-        question: "Which planet is known as the Red Planet?",
+        question: "Mikä on Suomen suurin järvi?",
         answers: [
-            { text: "Mercury", correct: false },
-            { text: "Mars", correct: true },
-            { text: "Jupiter", correct: false },
-            { text: "Venus", correct: false },
+            { text: "Inarijärvi", correct: false },
+            { text: "Saimaa", correct: true },
+            { text: "Päijänne", correct: false },
+            { text: "Oulujärvi", correct: false },
         ]
     },
     {
-        question: "What is the chemical symbol for water?",
+        question: "Kuinka monta maakuntaa Suomessa on?",
         answers: [
-            { text: "HO", correct: false },
-            { text: "O₂", correct: false },
-            { text: "H₂O", correct: true },
-            { text: "OH₂", correct: false },
-        ]
-    },
-    {
-        question: "Which language has the most native speakers worldwide?",
-        answers: [
-            { text: "English", correct: false },
-            { text: "Mandarin Chinese", correct: true },
-            { text: "Spanish", correct: false },
-            { text: "Hindi", correct: false },
-        ]
-    },
-    {
-        question: "What currency is used in Japan?",
-        answers: [
-            { text: "Yuan", correct: false },
-            { text: "Yen", correct: true },
-            { text: "Won", correct: false },
-            { text: "Dollar", correct: false },
-        ]
-    },
-    {
-        question: "In which sport is the term “love” used to indicate a score of zero?",
-        answers: [
-            { text: "Badminton", correct: false },
-            { text: "Tennis", correct: true },
-            { text: "Cricket", correct: false },
-            { text: "Basketball", correct: false },
-        ]
-    },
-    {
-        question: "What is the capital city of Canada?",
-        answers: [
-            { text: "Toronto", correct: false },
-            { text: "Ottawa", correct: true },
-            { text: "Vancouver", correct: false },
-            { text: "Montreal", correct: false },
-        ]
-    },
-    {
-        question: "Which organ pumps blood around the human body?",
-        answers: [
-            { text: "Brain", correct: false },
-            { text: "Liver", correct: false },
-            { text: "Heart", correct: true },
-            { text: "Lung", correct: false },
-        ]
-    },
-    {
-        question: "Who painted the Mona Lisa?",
-        answers: [
-            { text: "Vincent van Gogh", correct: false },
-            { text: "Pablo Picasso", correct: false },
-            { text: "Leonardo da Vinci", correct: true },
-            { text: "Claude Monet", correct: false },
-        ]
-    },
-    {
-        question: "How many continents are there on Earth?",
-        answers: [
-            { text: "Five", correct: false },
-            { text: "Six", correct: false },
-            { text: "Seven", correct: true },
-            { text: "Eight", correct: false },
-        ]
-    },
-    {
-        question: "Which gas do plants absorb during photosynthesis?",
-        answers: [
-            { text: "Oxygen", correct: false },
-            { text: "Nitrogen", correct: false },
-            { text: "Carbon dioxide", correct: true },
-            { text: "Hydrogen", correct: false },
-        ]
-    },
-    {
-        question: "What is the hardest natural substance on Earth?",
-        answers: [
-            { text: "Gold", correct: false },
-            { text: "Iron", correct: false },
-            { text: "Diamond", correct: true },
-            { text: "Quartz", correct: false },
-        ]
-    },
-    {
-        question: "Which ocean is the largest by area?",
-        answers: [
-            { text: "Atlantic Ocean", correct: false },
-            { text: "Indian Ocean", correct: false },
-            { text: "Arctic Ocean", correct: false },
-            { text: "Pacific Ocean", correct: true },
-        ]
-    },
-    {
-        question: "What is 3 squared?",
-        answers: [
-            { text: "6", correct: false },
-            { text: "9", correct: true },
             { text: "12", correct: false },
+            { text: "19", correct: true },
+            { text: "21", correct: false },
+            { text: "25", correct: false },
+        ]
+    },
+    {
+        question: "Minkä niminen on Suomen presidentin virka-asunto?",
+        answers: [
+            { text: "Kuusiniemi", correct: false },
+            { text: "Koivuniemi", correct: false },
+            { text: "Mäntyniemi", correct: true },
+            { text: "Haapaniemi", correct: false },
+        ]
+    },
+    {
+        question: "Mikä on Suomen pisin joki?",
+        answers: [
+            { text: "Tornionjoki", correct: false },
+            { text: "Kymijoki", correct: false },
+            { text: "Keravan joki", correct: false },
+            { text: "Kemijoki", correct: true },
+        ]
+    },
+    {
+        question: "Mitkä 3 ovat suurimmat kaupungit asukasluvultaan?",
+        answers: [
+            { text: "Helsinki, Vantaa, Espoo", correct: false },
+            { text: "Helsinki, Vantaa, Tampere", correct: false },
+            { text: "Helsinki, Espoo, Tampere", correct: true },
+            { text: "Helsinki, Espoo, Oulu", correct: false },
+        ]
+    },
+    {
+        question: "Kuka oli Suomen ensimmäinen presidentti?",
+        answers: [
+            { text: "Carl Gustaf Emil Mannerheim", correct: false },
+            { text: "J.K.Paasikivi", correct: false },
+            { text: "Kyösti Kallio", correct: false },
+            { text: "K.J.Ståhlberg", correct: true },
+        ]
+    },
+    {
+        question: "Minä vuonna Kimi Räikkönen voitti F1-mestaruuden?",
+        answers: [
+            { text: "2016", correct: false },
+            { text: "2009", correct: false },
+            { text: "2007", correct: true },
+            { text: "2015", correct: false },
+        ]
+    },
+    {
+        question: "Minä vuonna Suomesta tuli EU:n jäsen?",
+        answers: [
+            { text: "1990", correct: false },
+            { text: "2001", correct: false },
+            { text: "1999", correct: false },
+            { text: "1995", correct: true },
+        ]
+    },
+    {
+        question: "Minä vuosina Mika Häkkinen voitti F1-mestaruudet?",
+        answers: [
+            { text: "1991 & 1992", correct: false },
+            { text: "1998 & 1999", correct: true },
+            { text: "2002 & 2003", correct: false },
+            { text: "2005 & 2006", correct: false },
+        ]
+    },
+    {
+        question: "Milloin Suomenlinnan rakennustyöt on aloitettu?",
+        answers: [
+            { text: "1948", correct: false },
+            { text: "1848", correct: false },
+            { text: "1748", correct: true },
+            { text: "1648", correct: false },
+        ]
+    },
+    {
+        question: "Milloin Turku paloi?",
+        answers: [
+            { text: "1909", correct: false },
+            { text: "1899", correct: false },
+            { text: "1868", correct: false },
+            { text: "1827", correct: true },
+        ]
+    },
+    {
+        question: "Minä vuonna Helsingin Sanomat on perustettu?",
+        answers: [
+            { text: "1889", correct: true },
+            { text: "1900", correct: false },
+            { text: "1940", correct: false },
+            { text: "1965", correct: false },
+        ]
+    },
+    {
+        question: "Montako suomalaista asuu keskimäärin yhdellä neliökilometrillä?",
+        answers: [
             { text: "3", correct: false },
+            { text: "18", correct: true },
+            { text: "25", correct: false },
+            { text: "40", correct: false },
         ]
     },
     {
-        question: "Which musical instrument typically has 88 keys?",
+        question: "Milloin Suomessa tuli voimaan yleinen ja yhtäläinen äänioikeus?",
         answers: [
-            { text: "Guitar", correct: false },
-            { text: "Violin", correct: false },
-            { text: "Piano", correct: true },
-            { text: "Flute", correct: false },
+            { text: "1917", correct: false },
+            { text: "1906", correct: true },
+            { text: "1940", correct: false },
+            { text: "1925", correct: false },
         ]
     },
     {
-        question: "Who is the author of the 'Harry Potter' series?",
+        question: "Milloin Suomessa siirryttiin viisipäiväiseen työviikkoon?",
         answers: [
-            { text: "C.S. Lewis", correct: false },
-            { text: "J.R.R. Tolkien", correct: false },
-            { text: "J.K. Rowling", correct: true },
-            { text: "Stephen King", correct: false },
-        ]
-    },
-    {
-        question: "Which animal is commonly called the 'King of the Jungle'?",
-        answers: [
-            { text: "Tiger", correct: false },
-            { text: "Elephant", correct: false },
-            { text: "Lion", correct: true },
-            { text: "Gorilla", correct: false },
-        ]
-    },
-    {
-        question: "In computing, what does the abbreviation 'www' stand for?",
-        answers: [
-            { text: "World Web Window", correct: false },
-            { text: "World Wide Web", correct: true },
-            { text: "Web World Wide", correct: false },
-            { text: "Wide World Website", correct: false },
-        ]
-    },
-    {
-        question: "Which metal is liquid at room temperature?",
-        answers: [
-            { text: "Silver", correct: false },
-            { text: "Mercury", correct: true },
-            { text: "Copper", correct: false },
-            { text: "Aluminum", correct: false },
-        ]
-    },
-    {
-        question: "Which country gifted the Statue of Liberty to the United States?",
-        answers: [
-            { text: "United Kingdom", correct: false },
-            { text: "France", correct: true },
-            { text: "Spain", correct: false },
-            { text: "Germany", correct: false },
+            { text: "1940-luvun lopulla", correct: false },
+            { text: "1960-luvun lopulla", correct: true },
+            { text: "1980-luvun lopulla", correct: false },
+            { text: "1990-luvun alussa", correct: false },
         ]
     }
 ];
