@@ -17,7 +17,8 @@ switch (category) {
 const categoryNames = {
     "eläimet":  "Eläimet 🐾",
     "historia": "Historia 🏺",
-    "suomi":    "Suomi 🇫🇮"
+    "suomi":    "Suomi 🇫🇮",
+    "tekijät": "Tekijät"
   };
   
   const titleEl = document.getElementById("visa-nimi");
