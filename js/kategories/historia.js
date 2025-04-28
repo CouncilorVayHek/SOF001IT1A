@@ -178,7 +178,7 @@ const questions = [
             { text: "Roomalainen keisari.", correct: false },
             { text: " Portugalilainen merenkulkija.", correct: false },
         ]
-    }
+    },
     {
         question: "Mikä oli Euroopan unionin perustamisen tarkoitus?",
         answers: [
@@ -225,7 +225,7 @@ const questions = [
         ]
     },
     {
-        question: "Kuka piti kuuluisan "Minulla on unelma" -puheen?",
+        question: "Kuka piti kuuluisan 'Minulla on unelma' -puheen?",
         answers: [
             { text: "Abraham Lincoln", correct: false },
             { text: "Martin Luther King Jr.", correct: true },

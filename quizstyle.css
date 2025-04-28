@@ -19,11 +19,16 @@ body {
 }
 
 .app h1 {
-    font-size: 25px;
+    font-size: 35px;
     color: #2C3930;
     font-weight: 600;
-    border-bottom: 1px solid #2C3930;
     padding-bottom: 30px;
+    text-align: center;
+
+}
+.app h2{
+    text-align: center;
+    color: #2C3930;
 }
 
 .quiz {
@@ -69,6 +74,10 @@ body {
     border-radius: 4px;
     cursor: pointer;
     display: none;
+}
+.app p{
+    text-align:left;
+    color:#2C3930;
 }
 
 .correct {

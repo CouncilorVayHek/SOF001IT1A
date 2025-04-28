@@ -1,155 +1,147 @@
-// script.js
+/* ---------------------------------------------------------------
+   1. Poimi valittu kategoria ja löydä sitä vastaava skripti
+---------------------------------------------------------------- */
 const category = sessionStorage.getItem("chosenCategory");
 
 let categoryScriptPath = "";
-
 switch (category) {
-  case "eläimet":
-    categoryScriptPath = "./js/kategories/eläimet.js";
-    break;
-  case "historia":
-    categoryScriptPath = "./js/kategories/historia.js";
-    break;
-  case "suomi":
-    categoryScriptPath = "./js/kategories/suomi.js";
-    break;
+  case "eläimet":  categoryScriptPath = "./js/kategories/eläimet.js";  break;
+  case "historia": categoryScriptPath = "./js/kategories/historia.js"; break;
+  case "suomi":    categoryScriptPath = "./js/kategories/suomi.js";    break;
+  case "tekijät": categoryScriptPath = "./js/kategories/tekijät.js"; break;
   default:
     alert("Kategoriaa ei löytynyt!");
-    break;
 }
 
-// Dynamically load the appropriate script
+// category  on jo haettu sessionStoragesta
+const categoryNames = {
+    "eläimet":  "Eläimet 🐾",
+    "historia": "Historia 🏺",
+    "suomi":    "Suomi 🇫🇮",
+    "tekijät": "Tekijät"
+  };
+  
+  const titleEl = document.getElementById("visa-nimi");
+  if (titleEl) {
+    // Jos löytyi vastine sanakirjasta, käytä sitä, muuten näytä kategoria sellaisenaan
+    titleEl.textContent = categoryNames[category] || category || "Tietovisa";
+  }
+  
+
+/* ---------------------------------------------------------------
+   2. Fisher–Yates-sekoitus: satunnaistaa taulukon paikan päällä
+---------------------------------------------------------------- */
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+/* ---------------------------------------------------------------
+   3. Lataa kategoria­skripti, sekoita kysymykset ja rajaa 10 kpl
+---------------------------------------------------------------- */
 if (categoryScriptPath) {
   const script = document.createElement("script");
   script.src = categoryScriptPath;
   script.onload = () => {
-    // Assuming each category file defines a global variable `questions`
-    startQuiz(questions); // You implement this function to initialize the quiz with the loaded questions
+    // odotetaan, että kategoria­sivulla on globaali `questions`
+    if (!Array.isArray(questions) || questions.length === 0) {
+      alert("Kysymyksiä ei löytynyt!");
+      return;
+    }
+
+    shuffleArray(questions);      // satunnainen järjestys
+    if (questions.length > 10) questions.splice(10); // max 10
+
+    startQuiz();                  // aloita peli
   };
   document.body.appendChild(script);
 }
 
+/* ---------------------------------------------------------------
+   4. Elementit ja pelin tila
+---------------------------------------------------------------- */
+const questionElement = document.getElementById("question");
+const answerButtons  = document.getElementById("answer-buttons");
+const nextButton     = document.getElementById("next-btn");
 
-// -----------------------------
-// Viittaukset HTML-elementteihin
-// -----------------------------
-const questionElement = document.getElementById("question");        // <h2 id="question">
-const answerButtons = document.getElementById("answer-buttons");  // <div id="answer-buttons">
-const nextButton = document.getElementById("next-btn");        // <button id="next-btn">
+let currentQuestionIndex = 0; // monesko kysymys menossa
+let score = 0;                // oikeiden vastausten määrä
 
-// -----------------------------
-// Pelin tilamuuttujat
-// -----------------------------
-let currentQuestionIndex = 0; // mikä kysymys on menossa
-let score = 0; // montako oikeaa vastausta
+/* ---------------------------------------------------------------
+   5. Peli-funktiot
+---------------------------------------------------------------- */
 
-
-// Käynnistää tietovisan alusta:
-// - Nollaa kysymysindeksin ja pistelaskurin
-// - Asettaa Next-napin tekstin
-// - Lataa ensimmäisen kysymyksen näytölle
+// käynnistä peli
 function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    nextButton.innerHTML = "Next";
-    showQuestion();
+  currentQuestionIndex = 0;
+  score = 0;
+  nextButton.textContent = "Next";
+  showQuestion();
 }
 
-// Näyttää nykyisen kysymyksen ja sen vastausvaihtoehdot:
-// - Tyhjentää edellisen ruudun (resetState)
-// - Asettaa kysymyksen tekstin
-// - Luo jokaiselle vastaukselle painikkeen ja liittää niihin klikkauskuuntelijan
+// näytä kysymys ja vastaukset
 function showQuestion() {
-    resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+  resetState();
+  const q = questions[currentQuestionIndex];
+  questionElement.textContent = `${currentQuestionIndex + 1}. ${q.question}`;
 
-    currentQuestion.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerHTML = answer.text;
-        button.classList.add("btn");
-        answerButtons.appendChild(button);
-        if (answer.correct) {
-            // Tallennetaan dataksi, että tämä painike on oikea vastaus
-            button.dataset.correct = answer.correct;
-        }
-        button.addEventListener("click", selectAnswer);
-    });
+  q.answers.forEach(ans => {
+    const btn = document.createElement("button");
+    btn.textContent = ans.text;
+    btn.classList.add("btn");
+    if (ans.correct) btn.dataset.correct = "true";
+    btn.addEventListener("click", selectAnswer);
+    answerButtons.appendChild(btn);
+  });
 }
 
-// Palauttaa näkymän lähtötilaan ennen seuraavaa kysymystä:
-// - Piilottaa Next-napin
-// - Poistaa kaikki aiemmat vastauspainikkeet DOMista
+// tyhjennä vanhat vastaukset
 function resetState() {
-    nextButton.style.display = "none";
-    while (answerButtons.firstChild) {
-        answerButtons.removeChild(answerButtons.firstChild);
-    }
+  nextButton.style.display = "none";
+  answerButtons.innerHTML = "";
 }
 
-// Käsittelee käyttäjän valitseman vastauksen:
-// - Merkitsee oikean/väärän värillä
-// - Näyttää kaikki oikeat vastaukset
-// - Estää lisäklikkaukset ja paljastaa Next-napin
+// kun vastaus valitaan
 function selectAnswer(e) {
-    const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct === "true";
-    if (isCorrect) {
-        selectedBtn.classList.add("correct");
-        score++;
-    } else {
-        selectedBtn.classList.add("incorrect");
-    }
+  const selected = e.target;
+  const correct  = selected.dataset.correct === "true";
 
-    // Korostetaan myös muut oikeat painikkeet ja disabloidaan painikkeet
-    Array.from(answerButtons.children).forEach(button => {
-        if (button.dataset.correct === "true") {
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
-    nextButton.style.display = "block";
+  selected.classList.add(correct ? "correct" : "incorrect");
+  if (correct) score++;
+
+  Array.from(answerButtons.children).forEach(btn => {
+    if (btn.dataset.correct === "true") btn.classList.add("correct");
+    btn.disabled = true;
+  });
+
+  nextButton.style.display = "block";
 }
 
-// Näyttää lopputuloksen ja tarjoaa mahdollisuuden aloittaa alusta:
-// - Tyhjentää ruudun resetState-funktiolla
-// - Tulostaa pistemäärän näkyville
-// - Muuttaa Next-napin tekstiksi ”Pelaa Uudestaan”
-// - Asettaa napin näkyviin
+// näytä tulos
 function showScore() {
-    resetState();
-    questionElement.innerHTML = `Sait ${score}/${questions.length}!`;
-
-    nextButton.innerHTML = "Takaisin etusivulle";
-    nextButton.style.display = "block";
+  resetState();
+  questionElement.textContent = `Sait ${score}/${questions.length}!`;
+  nextButton.textContent = "Takaisin etusivulle";
+  nextButton.style.display = "block";
 }
 
-
-
-// Siirtää tietovisaa eteenpäin:
-// - Kasvattaa kysymysindeksiä
-// - Jos kysymyksiä on vielä jäljellä, näyttää seuraavan
-// - Muuten näyttää lopputuloksen
+// siirry seuraavaan kysymykseen tai tulokseen
 function handleNextButton() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        showScore();
-    }
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
 }
 
+// Next-napin kuuntelija
 nextButton.addEventListener("click", () => {
-    if (currentQuestionIndex < questions.length) {
-        handleNextButton();
-    } else {
-        window.location.href = "index.html";
-    }
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    window.location.href = "index.html";
+  }
 });
-
-
-
-// Käynnistetään tietovisa sivun latautuessa
-startQuiz();
-
