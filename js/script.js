@@ -13,6 +13,20 @@ switch (category) {
     alert("Kategoriaa ei löytynyt!");
 }
 
+// category  on jo haettu sessionStoragesta
+const categoryNames = {
+    "eläimet":  "Eläimet 🐾",
+    "historia": "Historia 🏺",
+    "suomi":    "Suomi 🇫🇮"
+  };
+  
+  const titleEl = document.getElementById("visa-nimi");
+  if (titleEl) {
+    // Jos löytyi vastine sanakirjasta, käytä sitä, muuten näytä kategoria sellaisenaan
+    titleEl.textContent = categoryNames[category] || category || "Tietovisa";
+  }
+  
+
 /* ---------------------------------------------------------------
    2. Fisher–Yates-sekoitus: satunnaistaa taulukon paikan päällä
 ---------------------------------------------------------------- */
