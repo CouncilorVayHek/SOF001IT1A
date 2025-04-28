@@ -8,6 +8,7 @@ switch (category) {
   case "eläimet":  categoryScriptPath = "./js/kategories/eläimet.js";  break;
   case "historia": categoryScriptPath = "./js/kategories/historia.js"; break;
   case "suomi":    categoryScriptPath = "./js/kategories/suomi.js";    break;
+  case "tekijät": categoryScriptPath = "./js/kategories/tekijät.js"; break;
   default:
     alert("Kategoriaa ei löytynyt!");
 }
