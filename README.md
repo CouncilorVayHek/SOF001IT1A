@@ -1,6 +1,3 @@
-Tässä on suomenkielinen `README.md`-tiedosto projektillesi, perustuen toimintaan ja tiedostoihin, jotka annoit:  
-
----
 
 # Tietovisapeli
 
