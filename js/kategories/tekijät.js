@@ -53,4 +53,31 @@ const questions= [
             { text: "Brooklyn nine-nine", correct: false },
         ]
     },
+    {
+        question: "Mikä on Iidan suosikki peli?",
+        answers: [
+            { text: "Marvel Rivals", correct: false },
+            { text: "Overwatch 2", correct: false },
+            { text: "Legend of Zelda: Twilight Princess", correct: false },
+            { text: "Warframe", correct: true },
+        ]
+    },
+    {
+        question: "Mikä on Iidan kissan nimi?",
+        answers: [
+            { text: "Sohvi", correct: true },
+            { text: "Riki", correct: false },
+            { text: "Soma", correct: false },
+            { text: "Jojo", correct: false },
+        ]
+    },
+    {
+        question: "Minkä soittimen soittoa Iida on harrastanut?",
+        answers: [
+            { text: "Kitara", correct: false },
+            { text: "Alttoviulu", correct: false },
+            { text: "Viulu", correct: true },
+            { text: "Sello", correct: false },
+        ]
+    },
 ];
