@@ -1,6 +1,8 @@
 /* Tuodaan perusvärit olemassa olevasta tiedostosta.
    Lisätään vain ruudukko ja hover-animaatio. */
 
+   
+
    .cat-grid {
     /* näyttää vastaus-nappien kaltaisilta korteilta,
        mutta kahdessa sarakkeessa */
