@@ -17,7 +17,7 @@ Tämä projekti on yksinkertainen verkkopohjainen tietovisapeli, jossa käyttäj
 - **Skriptit**  
   - `home.js` käsittelee kategorian valinnan ja siirtymisen visaan.
   - `script.js` lataa oikean kategorian kysymykset ja ohjaa visan etenemistä.
-  - Kategoriakohtaiset kysymystiedostot (`eläimet.js`, `historia.js`, `suomi.js`) sisältävät taulukot kysymyksistä ja vastauksista.
+  - Kategoriakohtaiset kysymystiedostot (`eläimet.js`, `historia.js`, `suomi.js`,`tekijät.js`) sisältävät taulukot kysymyksistä ja vastauksista.
 
 ## Toimintaperiaate
 
@@ -28,6 +28,7 @@ Tämä projekti on yksinkertainen verkkopohjainen tietovisapeli, jossa käyttäj
    `script.js` lataa dynaamisesti valitun kategorian kysymykset erillisestä JavaScript-tiedostosta.
 
 3. **Pelin kulku**  
+   - `script.js` valitsee ensin kymmenen kysymystä randomilla.
    - Kysymys ja vastausvaihtoehdot näytetään.
    - Vastaus valitaan ja tulos merkitään värein.
    - Siirrytään seuraavaan kysymykseen tai lopuksi näytetään pistemäärä.
