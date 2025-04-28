@@ -1,11 +1,29 @@
 const questions= [ 
     {
-        question: "kk",
+        question: "Mikä on Annan lempiruoka?",
         answers: [
-            { text: "", correct: false },
-            { text: "", correct: false },
-            { text: "", correct: true },
-            { text: "", correct: false },
+            { text: "Pasta", correct: false },
+            { text: "Pho-keitto", correct: false },
+            { text: "Shanghai-tacot", correct: true },
+            { text: "Lehtipihvi", correct: false },
+        ]
+    },
+    {
+        question: "Mikä on Annan mielestä kivoin vuodenaika?",
+        answers: [
+            { text: "Kevät", correct: true },
+            { text: "Talvi", correct: false },
+            { text: "Kesä", correct: false },
+            { text: "Syksy", correct: false },
+        ]
+    },
+    {
+        question: "Missä kaupungissa Anna asuu?",
+        answers: [
+            { text: "Espoo", correct: false },
+            { text: "Helsinki", correct: true },
+            { text: "Vantaa", correct: false },
+            { text: "Kirkkonummi", correct: false },
         ]
     },
     {
