@@ -6,7 +6,7 @@ Tämä projekti on yksinkertainen verkkopohjainen tietovisapeli, jossa käyttäj
 ## Projektin rakenne
 
 - **Etusivu (`index.html`)**  
-  Käyttäjä valitsee haluamansa visakategorian (Eläimet, Suomi, Historia). Valinta tallennetaan `sessionStorageen`.
+  Käyttäjä valitsee haluamansa visakategorian (Eläimet, Suomi, Historia, Tekijät). Valinta tallennetaan `sessionStorageen`.
 
 - **Visasivu (`quiz.html`)**  
   Kysymykset näytetään yksi kerrallaan. Käyttäjä saa välittömästi palautteen oikeasta/väärästä vastauksesta. Lopuksi näytetään pisteet ja mahdollisuus palata etusivulle.
