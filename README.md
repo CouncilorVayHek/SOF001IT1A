@@ -38,23 +38,9 @@ Tämä projekti on yksinkertainen verkkopohjainen tietovisapeli, jossa käyttäj
 4. **Pisteytys ja uusi peli**  
    Pelin lopuksi näytetään, montako vastausta meni oikein, ja käyttäjä voi palata takaisin etusivulle.
 
-## Kansiot ja tiedostot
-
-```
-index.html           # Etusivu kategorian valintaan
-quiz.html            # Visasivu kysymyksille
-quizstyle.css        # Yleiset tyylit molemmille sivuille
-home.css             # Etusivun lisätyylit
-home.js              # Etusivun toiminnallisuus
-script.js            # Visasivun logiikka
-eläimet.js           # Eläinaiheiset kysymykset
-historia.js          # Historiaan liittyvät kysymykset
-suomi.js             # Suomi-aiheiset kysymykset
-```
 
 ## Tekniset vaatimukset
 
 - Selain, joka tukee JavaScriptiä ja HTML5-ominaisuuksia.
-- Tiedostot tulee olla oikeassa hakemistorakenteessa, jotta polut (`./js/...`) toimivat oikein.
 
 ---
