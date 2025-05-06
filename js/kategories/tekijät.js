@@ -120,4 +120,33 @@ const questions= [
             { text: "Talvi", correct: false },
         ]
     },
+    {
+        question: "Mikä on Jessican lempiväri?",
+        answers: [
+            { text: "Sininen", correct: false },
+            { text: "Vihreä", correct: false },
+            { text: "Pinkki", correct: true },
+            { text: "Keltainen", correct: false },
+        ]
+    },
+    
+    {
+        question: "Missä Jessica on syntynyt?",
+        answers: [
+            { text: "Helsinki", correct: false },
+            { text: "Vantaa", correct: false },
+            { text: "Buenos Aires", correct: false },
+            { text: "Toronto", correct: true },
+        ]
+    },
+    
+    {
+        question: "Mikä on Jessican lempiruoka?",
+        answers: [
+            { text: "Sushi", correct: true },
+            { text: "Pizza", correct: false },
+            { text: "Burgeri", correct: false },
+            { text: "Pasta", correct: false },
+        ]
+    },
 ];
