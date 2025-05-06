@@ -38,7 +38,7 @@ const questions = [
         ]
     },
     {
-        question: "Mikä eläin tunnetaan myös nimellä Aavikon Laiva",
+        question: "Mikä eläin tunnetaan myös nimellä Aavikon Laiva?",
         answers: [
             { text: "Seepra", correct: false },
             { text: "Kameli", correct: true },

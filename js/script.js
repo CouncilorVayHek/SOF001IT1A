@@ -135,7 +135,7 @@ const container = document.getElementById('kuvanpaikka');
 
 if (score > 7) {
 
-    textElement.innerHTML = "Tietovisan huipulla on tilaa vain yhdelle, ja se olet sinä!";
+    textElement.innerHTML = "Tietovisan huipulla on tilaa vain yhdelle ja se olet sinä!";
     textElement.style.display = "block";
     
     const img = document.createElement('img');
