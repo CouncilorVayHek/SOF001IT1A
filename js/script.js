@@ -65,6 +65,7 @@ if (categoryScriptPath) {
 const questionElement = document.getElementById("question");
 const answerButtons  = document.getElementById("answer-buttons");
 const nextButton     = document.getElementById("next-btn");
+const textElement = document.getElementById("onnitteluteksti");
 
 let currentQuestionIndex = 0; // monesko kysymys menossa
 let score = 0;                // oikeiden vastausten määrä
@@ -125,6 +126,59 @@ function showScore() {
   questionElement.textContent = `Sait ${score}/${questions.length}!`;
   nextButton.textContent = "Takaisin etusivulle";
   nextButton.style.display = "block";
+
+
+// tuloksen yhteydessä näytetään onnitteluteksti ja siihen liittyvä kuva
+
+     
+const container = document.getElementById('kuvanpaikka');
+
+if (score > 7) {
+
+    textElement.innerHTML = "Tietovisan huipulla on tilaa vain yhdelle, ja se olet sinä!";
+    textElement.style.display = "block";
+    
+    const img = document.createElement('img');
+    img.src = 'assets/Hyvascore.jpg';
+    img.alt = 'Iloinen kani';
+    img.width = 500;
+    img.height = 500;
+
+    // Lisää kontekstiin
+    container.appendChild(img);
+    
+  }
+
+  else if (score > 4) {
+
+    textElement.innerHTML = "Tietäjää sinussa on - vielä vähän harjoittelua!";
+    textElement.style.display = "block";
+
+    const img = document.createElement('img');
+    img.src = 'assets/Neutraaliscore.jpg';
+    img.alt = 'Iloinen kani';
+    img.width = 500;
+    img.height = 500;
+
+    // Lisää kontekstiin
+    container.appendChild(img);
+}
+
+
+  else if (score >= 0) {
+
+    textElement.innerHTML = "No...ainakin voit sanoa, että opit jotain uutta tänään!";
+    textElement.style.display = "block";
+
+    const img = document.createElement('img');
+    img.src = 'assets/Huonoscore.jpg';
+    img.alt = 'Iloinen kani';
+    img.width = 500;
+    img.height = 500;
+
+    // Lisää kontekstiin
+    container.appendChild(img);
+  }
 }
 
 // siirry seuraavaan kysymykseen tai tulokseen
